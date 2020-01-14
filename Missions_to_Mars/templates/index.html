@@ -5,23 +5,149 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Costa Rica Weather</title>
+  <title>Mission to Mars</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 </head>
 
 <body>
+
   <div class="container-fluid">
     <div class="jumbotron text-center">
-      <h1>Visit the...</h1>
-      <p>MMMMMAAAAAAARRRRRSSSS!!!!!</p>
-      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Get Data!</a></p>
+      <h1>Mission to Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
     </div>
-    <!-- <img src="" alt="Sloth"> -->
-    <h2>The typical weather in Costa Rica is:</h2>
-    <h3>Max Temp: {{ mission.news_title }}</h3>
-    <h3>Min Temp: {{ mission.news_p }}</h3>
+    <div class="row">
+      <div class="col-lg-12">
+        <h2>Latest Mars News</h2>
+        <h4>{{ mission.news_title }}</h4>
+        <h6>{{  mission.news_p  }}</h6>
+      </div>
+    </div>
+    <br>
+    <div class="row">
+      <div class="col-md-8">
+        <h2>Featured Mars Image</h2>
+        <img src="{{  mission.featured_image_url  }}" alt="Featured Mars Image">
+      </div>
+      <div class= "col-md-4">
+        <div style="border: 1px solid lightgrey ; padding:10px;">
+          <h4 class="card-title">Current Weather on Mars</h4>
+          <p>{{  mission.mars_weather  }}</p>
+        </div>
+      </div>
+      <br>
+      <br>
+      <h3>Mars Facts</h3>
+      <div class="text-left">
+        {{  mission.df | safe  }}
+      </div>
+    </div>
   </div>
-  </div>
-</body>
 
+  <!-- <div class="container-fluid">
+    <div class="jumbotron text-center">
+      <h1>Mission To Mars</h1>
+      <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+    </div>
+
+    <h2 style="font-weight: bold">Latest Mars News</h2>
+    <h3>{{ mission.news_title }}</h3>
+    <p>{{ mission.news_p }}</p>
+  </div>
+  <div class="row mb-3">
+    <div class="col-md-8">Featured Mars Image</div>
+  </div>
+
+  
+
+
+
+  <div class="container"> -->
+<!-- First row of mars hemisphere cards
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ mission.hemisphere_image_urls[0].image_url }}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">{{ mission.hemisphere_image_urls[0].title }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="{{ mission.hemisphere_image_urls[1].image_url }}" alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">{{ mission.hemisphere_image_urls[1].title }}</p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<!-- Second row of mars hemisphere cards
+  <div class="row">
+    <div class="col-md-6">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <div class="card" style="width: 18rem;">
+        <img class="card-img-top" src="..." alt="Card image cap">
+        <div class="card-body">
+          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+        </div>
+      </div>
+    </div>
+  </div> 
+  </div> -->
+
+  <div class="jumbotron text-center">
+    <div class="row">
+      <div class="col-mg-12">
+        <h2>Mars Hemispheres</h2>
+        <hr>
+        <br>
+        <div class="card-deck">
+          <div class="card">
+            <img src="{{ mission.hemisphere_image_urls[0].image_url }}" alt="Cerberus" height="450">
+              <div class="card-body">
+                <h5 class="card-title">Cerberus Hemisphere</h5>
+              </div>
+          </div>
+                 
+          <div class="card">
+            <img src="{{ mission.hemisphere_image_urls[1].image_url }}" alt="Schiaparelli" height="450">
+              <div class="card-body">
+                <h5 class="card-title">Schiaparelli Hemisphere</h5>
+              </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <div class="card-deck">
+          <div class="card">
+            <img src="{{ mission.hemisphere_image_urls[2].image_url }}" alt="Syrtis Major" height="450">
+              <div class="card-body">
+                <h5 class="card-title">Syrtis Major</h5>
+              </div>
+          </div>
+                 
+          <div class="card">
+            <img src="{{ mission.hemisphere_image_urls[1].image_url }}" alt="Valles Marineris" height="450">
+              <div class="card-body">
+                <h5 class="card-title">Valles Marineris Hemisphere</h5>
+              </div>
+          </div>
+        </div>
+            
+      </div>
+    </div>
+  </div>
+
+  </div>
+
+  </body>
 </html>

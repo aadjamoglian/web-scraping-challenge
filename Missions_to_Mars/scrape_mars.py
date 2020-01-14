@@ -54,6 +54,8 @@ def scrape_info():
 
     # Cover Image full URL
 
+    browser.quit()
+
     image_link = f"https://www.jpl.nasa.gov{image_link_short}"
     print(image_link)
 
@@ -76,7 +78,21 @@ def scrape_info():
 
     # Mars table in dataframe
 
-    df = pd.read_html(str(table))
+    dfs = pd.read_html(str(table))
+
+    df = dfs[0]
+
+    # df = df.index = ["row_0", "row_1", "row_2", "row_3", "row_4", "row_5", "row_6", "row_7", "row_8"]
+
+    df.columns = ["key", "value"]
+
+    df.set_index("key")
+
+    df = df.to_html()
+
+    # df = df.to_dict("records")
+
+    print(df)
 
 
     ### FOR SCRAPE FUNCTION
@@ -145,10 +161,10 @@ def scrape_info():
     # Store data in a dictionary
     mars_data = {
         "news_title": title_text,
-        "news_p": min_temp,
-        "featured_image_url": max_temp,
-        "mars_weather": mars_weather,
-        "hemisphere_image_urls": mars
+        "news_p": p_text,
+        "featured_image_url": image_link,
+        "mars_weather": df,
+        "hemisphere_image_urls": mars_hemis
     }
 
     # Close the browser after scraping
